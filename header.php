@@ -38,7 +38,7 @@
 			<!-- Logo -->
 			<div class="col base-2-3 tablet-1-3">
 				<a href="<?php echo get_home_url();?>">
-					<img class="logo" src="<?php echo get_stylesheet_directory_uri(); ?>/images/logotipo.png"/>
+					<img class="logo" alt="Logo Romera y Ruiz Arquitectos" src="<?php echo get_stylesheet_directory_uri(); ?>/images/logotipo.png"/>
 				</a>
 			</div>
 			
