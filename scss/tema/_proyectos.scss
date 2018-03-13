@@ -1,0 +1,298 @@
+.lista-proyectos{
+	margin-top: $espacio--filas;
+	margin-bottom: $espacio;
+	&>.col{
+		padding: 0;
+	}
+	
+	.proyecto{
+		
+		position: relative;
+		transition: all .3s;
+		&__img{
+			transition: filter .1s linear;
+			position: relative;
+			filter: grayscale(20);
+			background: #000;
+			&:hover{
+				filter: none;
+			}
+		}
+				
+		&:hover{
+			
+			img{
+				filter: grayscale(0);
+			}
+			
+			.proyecto__legend{
+				opacity: 1;
+			}
+		}
+		
+		&__legend{
+			transition: all .3s linear;			
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: #fff;
+			@include sombra--texto-oscura;
+			
+			@include desde(web){
+				opacity: 0;
+			}
+			
+		}
+		
+	}
+}
+
+
+/*
+	Single
+*/
+
+#proyecto_single{
+	
+	margin-top: $alto-menu-pagina;
+	@include hasta(tablet){
+		top: calc(#{$alto-menu-pagina} - (#{$alto-header} - #{$alto-header}*.75));
+	}
+	
+	#concepto{
+		@include hasta(tablet){
+			min-height: auto!important;
+		}
+	}
+	.imagen-principal{
+		margin-bottom: $espacio;
+		min-height: auto!important;
+		@include desde(hd){
+			min-height: calc(100vh - #{$alto-header} - #{$alto-menu-pagina});
+			position: relative;
+			overflow: hidden;
+		}
+	}
+		
+	.imagen-secundaria{
+		margin-bottom: $espacio;
+		max-height: calc((100vh - #{$alto-header} - #{$alto-menu-pagina}) * 0.75);
+		overflow: hidden;
+	}
+	.memoria_proyecto{
+		&>p:first-child{
+			margin-top: 0;
+		}
+		p{
+			line-height: 1.5;
+			text-align: justify;
+			@include hasta(tablet){
+				font-size: 1.2em;
+			}
+		}
+	}
+	
+	.seccion_proyecto{
+		@include desde(hd){
+			min-height: calc(100vh - #{$alto-header} - #{$alto-menu-pagina});
+		}
+		
+		width: 100%;
+	}
+
+}
+
+.memoria_container{
+	max-width: 100%;
+	min-height: calc(100% - 3.1em);
+	position: relative;
+	
+	iframe{
+		position: absolute;
+		bottom: -23px; //1px;
+		max-width: 100%;	
+	}
+}
+
+
+/*
+	Galerias nested
+*/
+/*
+.galeria_container{
+	margin: auto;
+	margin-bottom: $espacio;
+	@media screen and (min-width: 1640px){width: 1600px;}
+	@media screen and (max-width: 1640px){width: 1600px;}
+	@media screen and (max-width: 1440px){width: 1400px;}
+	@media screen and (max-width: 1240px){width: 1200px;}
+	@media screen and (max-width: 1040px){width: 1000px;}
+	@media screen and (max-width: 840px){width: 800px;}
+	@media screen and (max-width: 600px){width: 480px;}
+	@media screen and (max-width: 479px){width: 320px;}
+}
+
+#nested_gallery{
+	width: 100%;
+	
+	&>div{
+		margin: 0 50px 40px 110px;
+		@media screen and (max-width: 479px){
+			margin: 0 50px 40px 50px;
+		}
+		@media screen and (min-width: 480px){
+			margin: 0 60px 40px 60px;
+		}
+	}	
+}
+*/
+
+
+.box { width: 1200px; margin: auto; position: relative;}
+
+.contcajas{
+	width: 100%;
+	position: relative;
+}
+
+.size { width: 160px; height: 160px; float: left; margin: 0 20px 40px 20px; position: relative;}
+.size a { position: absolute; top: 0; left: 0;}
+.size img { float: left; width: 160px;}
+
+.size11 { width: 160px; height: 160px; float: left; margin: 0 20px 40px 20px; position: relative;}
+.size12 { width: 160px; height: 360px; float: left; margin: 0 20px 40px 20px; position: relative;}
+.size13 { width: 160px; height: 560px; float: left; margin: 0 20px 40px 20px; position: relative;}
+.size21 { width: 360px; height: 160px; float: left; margin: 0 20px 40px 20px; position: relative;}
+.size22 { width: 360px; height: 360px; float: left; margin: 0 20px 40px 20px; position: relative;}
+.size31 { width: 560px; height: 160px; float: left; margin: 0 20px 40px 20px; position: relative;}
+.size23 { width: 360px; height: 560px; float: left; margin: 0 20px 40px 20px; position: relative;}
+.size32 { width: 560px; height: 360px; float: left; margin: 0 20px 40px 20px; position: relative;}
+.size41 { width: 760px; height: 160px; float: left; margin: 0 20px 40px 20px; position: relative;}
+.size42 { width: 760px; height: 360px; float: left; margin: 0 20px 40px 20px; position: relative;}
+
+.contCajas { float: left; width: 100%;}
+.caja { position: relative; font-family:'HarmoniaSans W01', sans-serif; font-size: 12px; line-height: 14px; overflow: hidden; text-transform: uppercase; color: #000;}
+.caja img { display: block; float: left;}
+
+// responsive
+@media screen and ( min-width: 1840px) {.box { width: 1800px;}}
+//@media screen and ( min-width: 1640px) {.box { width: 1600px;}}
+@media screen and ( max-width: 1640px) {.box { width: 1400px;}}
+@media screen and ( max-width: 1440px) {.box { width: 1200px;}}
+@media screen and ( max-width: 1240px) {.box { width: 1000px;}}
+@media screen and ( max-width: 1040px) {.box { width: 800px;}}
+@media screen and (max-width: 840px) {.box { width: 600px;}}
+@media screen and (max-width: 600px) {
+	.box { width: 480px;}
+
+	.size11 { width: 100px; height: 100px; margin: 0 10px 20px 10px; }
+	.size12 { width: 100px; height: 220px; margin: 0 10px 20px 10px; }
+	.size21 { width: 220px; height: 100px; margin: 0 10px 20px 10px; }
+	.size22 { width: 220px; height: 220px; margin: 0 10px 20px 10px; }
+	.size23 { width: 220px; height: 340px; margin: 0 10px 20px 10px; }
+	.size23 { width: 430px; height: 220px; margin: 0 10px 20px 10px; }
+	.size32 { width: 220px; height: 430px; margin: 0 10px 20px 10px; }
+	.size11 img, .size12 img, .size21 img , .size22 img , .size23 img , .size31 img , .size32 img{ width: 100%;}
+}
+@media screen and (max-width: 479px) {
+	.box { width: 320px;}
+	.size11 { width: 86px; height: 86px; margin: 0 10px 20px 10px; }
+	.size12 { width: 86px; height: 192px; margin: 0 10px 20px 10px; }
+	.size21 { width: 192px; height: 86px; margin: 0 10px 20px 10px; }
+	.size22 { width: 192px; height: 192px; margin: 0 10px 20px 10px; }
+	.size23 { width: 192px; height: 298px; margin: 0 10px 20px 10px; }
+	.size32 { width: 298px; height: 192px; margin: 0 10px 20px 10px; }
+	.size11 img, .size12 img, .size21 img , .size22 img , .size23 img , .size31 img , .size32 img{ width: 100%;}
+}
+
+/*
+	Project assets
+*/
+
+.filtro_proyectos_single a:not(.icon-filter){
+  @include hasta(web){
+  	display: none;
+  }
+}
+
+#btn_filtro_movil{
+	padding: 2.5px 10px;
+	border: 1px solid rgba(0,0,0,0.1);
+	@include hasta(web){
+		display: inline-block!important;
+	}
+	@include desde(web){
+		display: none;
+	}
+}
+
+
+.mascara{
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: -100%;
+  background: rgba(255,255,255,.8);
+  display: none;	
+}
+
+.contenedor_flotante{
+    background: #fff;
+    position: absolute;
+    width: 80%;
+    top: 10%;
+    left: 10%;
+    box-shadow: 0 0 8px 1px rgba(0,0,0,.4);
+    display: flex!important;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 1em;
+	.btn_filtro{
+		flex: none;
+		padding: .5em 2em;
+		margin: .5em auto;
+		width: 70%;
+		text-align: center;
+		
+	}
+}
+
+.contenedor_flotante .cerrar{
+  position: absolute;
+  cursor: pointer;
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  text-align: center;
+  font-size: 1.4em;
+  line-height: 1.5;
+  font-weight: 400;
+  bottom: 0;
+  right: 0;
+}
+
+
+// Lightbox galería proyectos
+
+.lg-outer,.lg-image{
+  min-height: 100vh!important;
+  vertical-align: middle!important;
+}
+
+.lg-image{
+  height: auto!important;
+}
+
+
+.box{
+	img{
+		cursor: pointer;
+	}
+}

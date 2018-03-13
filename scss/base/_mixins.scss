@@ -1,0 +1,98 @@
+@mixin boton--menu($height,$background-color,$front-color){
+
+	display: block;
+	height: $height;
+	width: $height*1.2;
+	background:$background-color;
+
+	position: relative;
+
+	cursor: pointer;
+	// Pruebas
+	
+	background: $color1;
+	height: 5px;
+	transition: .1s;
+	&:before,&:after{
+		content:"";
+		position: absolute;
+		width: 100%;
+		height: 5px;
+		background: $front-color;
+		left: 0;
+		transition: .5s;
+	}
+	&:before{
+		top: calc(-100% - 8px);		
+	}
+	
+	&:after{
+		top: calc(100% + 8px);
+	}
+	
+	&.abierto{
+		background: transparent;
+		
+		&:before{
+			transform-origin: left bottom; 
+			//8
+			transform: rotate(45deg) translateY(2px);
+		}
+		&:after{
+			transform-origin: left bottom;
+			//4
+			transform: rotate(-45deg) translateY(4px);
+			
+		}
+	}
+	
+	// Final pruebas
+/*
+	&:before{
+		content:"";
+		position: absolute;
+		background: $front-color;
+
+		border-radius: 5px;
+
+		top: 50%;
+		transform: translateY(-50%);
+		left: 0;
+		
+		width: 100%;
+		height: $height/5;
+		
+		box-shadow: 0 2*($height/5) $front-color,0 -2*($height/5) $front-color;
+	}
+*/
+}
+
+@mixin sombra-oscura{
+	box-shadow: 0 0 1px 1px rgba(#000,.4);
+}
+
+@mixin sombra-clara{
+	box-shadow: 0 0 1px 1px rgba(#fff,.4);
+}
+
+@mixin sombra--texto-oscura{
+	text-shadow: 1px 1px 3px rgba(#000,.8);
+}
+
+
+@mixin desde($medida){
+	@if map-has-key($anchos,$medida){
+		@media screen and (min-width: #{map-get($anchos, $medida)}) {
+			@content;	
+		}
+	}
+}
+
+@mixin hasta($medida){
+	@if map-has-key($anchos,$medida){
+		@media screen and (max-width: #{map-get($anchos, $medida)}) {
+			@content;	
+		}
+	}
+}
+

@@ -1,0 +1,59 @@
+// Clases de ayuda
+
+.col-derecha{
+	display: flex;
+	justify-content: flex-end;
+}
+
+.col-izquierda{
+	display: flex;
+	justify-content: flex-start;
+}
+
+.col-centro{
+	display: flex;
+	justify-content: center;
+}
+
+.col-centro-v{
+	display: flex;
+	align-items: center;
+}
+
+.col-centro-abs{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.no-padding{
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.padding{
+	padding-left: $espacio--filas/2;
+	padding-right: $espacio--filas/2;
+}
+
+.padding-2{
+	padding-left: $espacio--filas;
+	padding-right: $espacio--filas;
+}
+
+.margin-top{
+	margin-top: $espacio--filas;
+}
+
+.anti-margin-top{
+	margin-top: -$espacio--filas;
+}
+
+.uppercase{
+	text-transform: uppercase;
+}
+
+.space_between{
+	display: flex;
+	justify-content: space-between;
+}

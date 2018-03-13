@@ -1,0 +1,40 @@
+@import "normalize.css";
+
+*,
+*:after,
+*:before{
+	box-sizing: border-box;
+}
+
+img{
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+a{
+	text-decoration: none;
+	color: inherit;
+}
+
+html{
+	@include hasta(tablet){
+		margin-top: $alto-header*.75;
+	}
+	margin-top: $alto-header;
+}
+
+body{
+	margin: 0;
+	font-family: $fuente--cuerpo;
+	background: $fondo--body;
+	color:#555;
+	font-weight: 300;
+	//min-height: calc(100vh - #{$alto-header});
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-family: $fuente--titulos;
+	font-weight: 400;
+}
+

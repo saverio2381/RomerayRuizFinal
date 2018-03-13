@@ -1,0 +1,131 @@
+// Modo de pruebas
+
+.test {
+	
+	.fila{
+		position: relative;
+		margin-bottom: 1em;
+		outline: 1px solid red;
+		background: rgba(tomato,.2);
+		margin-top: 1em;
+		&:before{
+			position: absolute;
+			font-family: 'sans-serif';
+			left: 0;
+			top: -1em;
+			font-size: .85em;
+			width: 100%;
+			content:attr(class);
+			background: rgba(blue,.4);
+			color:#333;
+			padding-left: $espacio--filas/2;
+			
+		}
+		
+	}
+	
+	.col{
+		position: relative;
+		background: honeydew;
+		outline: 1px solid rgba(#000,.4);
+		margin-bottom: 1em;
+		
+		&:after{
+			position: absolute;
+			font-family: 'sans-serif';
+			left: 0;
+			bottom: -1em;
+			font-size: .85em;
+			width: 100%;
+			height: 1em;
+			content:attr(class);
+			background: rgba(tomato,.4);
+			color:#333;
+			padding-left: $espacio--filas/2;
+		}	
+	}
+}
+
+// Sistema de rejilla
+
+.fila{
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	max-width: $ancho--maximo;
+	margin: auto;
+	clear: both;
+}
+
+.col{
+	//flex: 1 1 100%;
+	//flex-basis: calc(100% - #{$espacio--filas});
+	width: 100%;
+	padding-left: $espacio--filas/2;
+	padding-right: $espacio--filas/2;
+	float: left;
+}
+
+.col_np{
+	//flex: 1 1 100%;
+	//flex-basis: calc(100% + #{$espacio--filas});
+	width: 100%;
+	float: left;
+}
+
+.total{
+	width: 100%;
+	max-width:100%;
+}
+
+@each $medida,$ancho in $anchos{	
+	
+	@media screen and (min-width: #{$ancho}){
+		
+		// Porcentajes de 5 en 5 de 5 hasta 100
+		
+		@for $i from 1 through 20{
+			.#{$medida}-#{$i*5}{
+				//flex: 1 1 #{$i*5%}; 
+				width: #{$i*5%}; 
+				//flex-basis: calc(#{$i*5%} - #{$espacio--filas}); 
+			}
+		}
+		
+		@for $i from 1 through 20{
+			.#{$medida}-#{$i*5}_np{
+				//flex: 1 1 #{$i*5%}; 
+				//flex-basis: calc(#{$i*5%} ); 
+				//-webkit-flex-basis: calc(#{$i*5%} + #{$espacio--filas}); 
+				width: #{$i*5%}; 
+			}
+		}
+		
+		// Fracciones
+		
+		@each $nombre,$partes in $fracciones{
+			@for $i from 1 through $partes{
+				.#{$medida}-#{$i}-#{$partes}{
+					//flex: 0 1 calc( (100%/#{$partes})*#{$i});
+					width: calc( (100%/#{$partes})*#{$i});
+					//flex-basis: calc( (100%/#{$partes})*#{$i} - #{$espacio--filas});
+				}
+			}
+		}
+		
+		@each $nombre,$partes in $fracciones{
+			@for $i from 1 through $partes{
+				.#{$medida}-#{$i}-#{$partes}_np{
+					//flex: 0 1 calc( (100%/#{$partes})*#{$i});
+					width: calc( (100%/#{$partes})*#{$i});
+					//flex-basis: calc( (100%/#{$partes})*#{$i} /*+ #{$espacio--filas}*/);
+					//-webkit-flex-basis: calc( (100%/#{$partes})*#{$i} + #{$espacio--filas});
+				}
+			}
+		}
+		
+	}	
+}
+
+
+

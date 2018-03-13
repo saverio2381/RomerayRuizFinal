@@ -1,0 +1,17 @@
+#contacto_page{
+	margin-top: $alto-menu-pagina;
+	@include hasta(tablet){
+		top: calc(#{$alto-menu-pagina} - (#{$alto-header} - #{$alto-header*.75}));
+		margin-top: $alto-menu-pagina*1.25;
+	}
+	
+	.seccion_contacto{
+		min-height: calc(100vh - #{$alto-header} - #{$alto-menu-pagina});
+		width: 100%;
+		
+	}
+	
+	.col{
+		overflow: hidden;
+	}
+}

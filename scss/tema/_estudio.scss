@@ -1,0 +1,349 @@
+#estudio_page{
+	margin-top: $alto-menu-pagina;
+	@include hasta(tablet){
+		top: calc(#{$alto-menu-pagina} - (#{$alto-header} - #{$alto-header*.75}));
+		margin-top: $alto-menu-pagina*1.25;
+	}
+	
+	.seccion_estudio{
+		min-height: calc(100vh - #{$alto-header} - #{$alto-menu-pagina});
+		width: 100%;
+		margin-bottom: $espacio;
+		//outline: 1px solid green;
+	}
+	
+}
+
+#equipo > div:first-child{
+  // Sección de los socios fundadores
+  min-height: auto;
+}
+
+
+
+.titulo_socio{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: flex-end;
+	
+	.nombre{
+		font-weight: 400;
+	}
+	
+	.titulo{
+		
+		margin-left: $espacio;
+
+		@include hasta(tablet){
+			margin-left: -#{$espacio};
+		}
+	}
+	@include hasta(tablet){
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-start;
+		span{
+			text-align: left;
+			width: 100%;
+			margin-left: -#{$espacio};
+		}
+	}
+}
+
+.socios_fundadores{
+	justify-content: space-between;
+	min-height: calc(100vh - #{$alto-header} - #{$alto-menu-pagina});
+}
+
+.perfil{
+	text-align: justify;
+}
+
+/*
+.miembros_de_equipo{
+	.componente_equipo{
+		
+		padding-top: $espacio--filas;
+		padding-bottom: $espacio--filas;
+		margin: $espacio 0;
+		.nombre_miembro{
+			font-weight: 400;
+		}
+	}
+}
+*/
+
+.lista_miembros{
+	column-count: 1;
+	display: flex;
+	flex-direction: column;
+	//justify-content: space-between;
+/*
+	column-gap: $espacio*2;
+	@include desde(tablet){
+		column-count: 2;
+	}
+	
+	@include desde(web){
+		column-count: 3;
+	}
+*/
+	.titulo_seccion{
+		margin-left: -#{$espacio};
+	}
+	
+}
+
+.lista_miembros,.lista_colaboradores{
+	&>span{
+		display: inline-block;
+		width: 100%;
+		font-weight: 400;
+		line-height: 2;
+		& span{
+			font-weight: 300;
+		}
+	}
+}
+
+#mosaico_equipo{
+	@include hasta(tablet){
+		margin-top: $espacio;
+	}
+}
+
+.lista_colaboradores{ 
+/*
+	column-count: 2;
+	column-gap: $espacio--filas;
+*/
+	margin-left: 	-#{$espacio};
+}
+
+/*
+	Premios
+*/
+
+.premio{
+  	margin-bottom: $espacio--filas*2;
+  	display: flex;
+  	span{
+	  	display: block;
+	  	font-size: .9em;
+	  	text-transform: uppercase;
+	}
+	
+	.nombre_premio{
+		font-weight: 300;
+	}
+	
+	.datos_premio{
+	  padding-left: 0;
+	  padding-right: 0;
+	  
+	  .objeto_premio{
+		  font-weight: 400;
+	  }
+	}
+	
+	.col{
+	  align-self: flex-end;
+	}
+}
+
+
+/*
+	Publicaciones
+*/
+
+/*
+	Parte nueva
+*/
+
+#titulo_bibliografia{
+	display: flex;
+	align-items: center;
+	@include hasta(tablet){
+		display: inline;
+		margin-top: 1.5em;
+	}
+	h2{
+		margin-right: .5em;
+		@include hasta(tablet){
+			margin-bottom: 0;
+		}
+	}
+	.filtro_actual_bibliografia{
+		margin-right: .5em;
+		text-transform: uppercase;
+		font-size: .8em;
+		font-weight: 300;
+// 		padding-left: .6em;
+		position: relative;
+		font-size: 1em;
+/*
+		&:before{
+			content:"//";
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+*/
+		@include hasta(tablet){
+			display: none;
+		}
+	}
+	.subfiltros_bibliografia{
+		text-transform: uppercase;
+		font-size: .8em;
+		display: flex;
+		justify-content: space-around;
+		a{
+			margin: 0 .3em;
+			&[class*='active']{
+				border-bottom: 1px solid #565659;
+			}
+		}
+	}
+}
+
+.publicaciones_section{
+	flex-wrap: wrap;
+	display: flex;
+}
+
+.publicacion{
+	margin-bottom: $espacio--filas * 2;
+	//outline: 1px solid green;
+	position: relative;
+	.imagen_publicacion{
+		min-height: 250px;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		align-items: flex-end;
+	}
+	.datos_publicacion{
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		text-transform: uppercase;
+		font-size: .9em;
+		margin-bottom: 0;
+		span,p{
+			display: block;
+			margin: 0;
+			padding: 0;
+			margin: .3em 0;
+		}
+		a{
+			font-weight: 400;
+		}
+		.etiqueta_publicacion{
+			font-weight: 400;
+		}
+	}
+	
+}
+/*
+	Aqui empieza la parte vieja, nótese el elector .publicacion_old para deshabilitarlo
+*/
+.publicacion_old{
+  	position: relative;
+  	margin-bottom: $espacio;
+  	transition: all .3s ease;
+  	@include hasta(tablet){
+  		max-height: calc(60vh - #{$alto-header} - #{$alto-menu-pagina}); 
+  	}
+  	&__img{
+		max-height: 100%;
+		@include hasta(tablet){
+  			max-height: calc(60vh - #{$alto-header} - #{$alto-menu-pagina});
+  			width: 100%;	 
+  		}
+		width: auto;
+		max-width: 100%;  
+		filter: grayscale(20);
+		transition: all .3s ease;
+  	}
+  	
+  	&:hover &__img,&:active &__img{
+	  	filter: grayscale(0);
+  	}
+  	&:hover &-info,&:active &-info{
+	  	opacity: 0;
+	  	transform: scaleY(0);
+  	}
+  	&-info{
+	  	transform-origin: top;
+	  	transition: all .5s ease;
+	  	position: absolute;
+	  	top: 0;
+	  	left: #{$espacio};
+	  	width: calc(100% - #{$espacio--filas});
+	  	height: 100%;
+	  	background: rgba(#fff,.8);
+	  	text-align: center;
+	  	
+	  	&[class*="activa"]{
+		  	opacity: 0;
+		  	transform: scaleY(0);
+	  	}
+	  	
+	  	&__nombre{
+		  	position: absolute;
+		  	top: 50%;
+		  	transform: translateY(-50%);
+		  	left: 0;
+		  	width: 100%;
+		  	padding: 0 $espacio*1.5;
+		  	text-align: center;
+		  	text-transform: uppercase;
+		  	font-weight: 400;
+	  	}
+	  	
+	  	&__anno{
+		  	position: absolute;
+		  	bottom: $espacio;
+		  	left: 50%;
+		  	transform: translateX(-50%);
+		  	text-align: center;
+		  	font-size: .9em;
+	  	}
+  	}
+}
+
+.fijo{
+  background: #fff;
+  position: fixed;
+  top: 136px;
+  z-index: 10;
+}
+
+/*
+	SOSTENIBILIDAD
+*/
+
+#sostenibilidad{
+	z-index: 10;
+	background: #fff;
+	@include hasta(tablet){
+		padding-top: 2.5em;
+	}
+}
+
+
+.punto_sostenibilidad{
+	margin-bottom: 1em;
+	@include desde(tablet){
+		margin-bottom: 2em;
+	}
+	.descrip_sos{
+		p{
+			text-align: justify;
+			margin-top: 0;	
+		}
+	}
+}
+

@@ -1,0 +1,147 @@
+#page-header{
+	background: rgba(#fff,1);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: $alto-header;
+	
+	@include hasta(tablet){
+		height: $alto-header*.75;
+	}
+	z-index: 100;
+	display: flex;
+// 	box-shadow: 0 0 2px 1px rgba(#000,.4);
+	
+	font-family: $fuente--titulos;
+}
+
+.logo{
+	width: 232px;
+	@include desde(tablet){
+		margin-top: $espacio*1.75;
+	}
+}
+
+#menu-toggle,#menu-toggle_web{
+	
+	@include boton--menu(2em,transparent,$color1);
+}
+
+.menu-toggle{
+	@include desde(tablet){
+		display: none;
+	}
+}
+
+.menu-toggle_web{
+	position: relative;
+	#logo2{
+		margin-right: calc(2.4em + #{$espacio});
+	}
+}
+
+.menu_toggle_container{
+	display: block;
+	transform: translateY($espacio/2);
+ 	height: 2em;
+	position: relative;
+ 	//padding-top: 5px;
+	@include hasta(tablet){
+		&>div{
+			top: calc(50% - 7.5px)!important;
+		}
+	}
+	
+	#menu-toggle_web{
+		margin-top: -13px;
+	}
+
+}
+#aux-cab-container{
+
+	@include hasta(tablet){
+		display: none;
+	}
+
+	height: $alto-header;
+	padding-left: 0;
+
+	#aux-cab{
+
+		flex-direction: column;
+		height: 100%;
+		&__sup{
+			flex: 25%;
+			
+			a{
+				font-size: .8em;
+				
+			}
+		}
+		
+		&__inf{
+			flex: 75%;
+			padding-right: 0; // para alinear el texto del item de menu con el final de la pagina
+			
+		}
+	}
+}
+
+#lang-bar{
+	margin-left: $espacio;
+	ul{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		
+		li{
+			display: inline-block;
+		}
+	}
+	li{
+		list-style: none;
+	}
+	a{
+		color: rgba($color1,.6)!important;
+		transition: all .3s linear;
+		display: inline-block;
+		border-right: 1px solid rgba($color1,.6)!important;
+		padding-right: 4px!important;
+		text-transform: uppercase;
+	}
+	
+	ul li:last-child a{
+	  border-right: 0!important;
+	  padding-right: 0!important;
+// 	  border-right: 0;
+	}
+	li.active > a,a:hover,{
+		color:rgba($color1,1)!important;
+		font-weight: 400!important;
+	}
+
+}
+
+#user-bar{
+	a{
+		color: rgba($color1,.6);
+		transition: all .3s linear;
+	}
+	a.active,a:hover{
+		color:rgba($color1,1);
+		font-weight: 400;
+	}
+}
+
+
+// Pruebas
+#logo2{
+  margin-right: 10px;
+}
+
+.menu_toggle_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

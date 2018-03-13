@@ -1,0 +1,264 @@
+a.btn{
+	display: inline-block;
+	padding: $espacio/2 $espacio;
+	border: 1px solid rgba(#000,.1);
+	background: rgba(#000,.1);
+	font-weight: 300;
+}
+
+.page-title{
+	font-size: 1.5em!important;
+	font-weight: 400;
+	margin: 0;
+	margin-left: -2px;
+	padding: 0 0 $espacio--filas 0;
+	text-transform: uppercase;	
+	h1{
+		margin: 0;
+		padding: 0;
+		font-size: 1.3em!important;
+	}
+}
+
+.titulo_seccion{
+	h3{
+		margin-bottom: $espacio--filas;
+	}
+}
+
+.breadcumbs_container{
+ 	margin-top: calc(-#{$espacio--filas} - 5px);
+	@include hasta(tablet){
+		margin-top: calc(-#{$espacio--filas});	
+	}
+	&>.oculto{
+		display: none;
+	}
+}
+
+.cuadricula{
+	&>.col{
+		margin-top: $espacio;
+		margin-bottom: $espacio;
+	}
+}
+
+.btn_filtro{
+	font-size: 1em;
+	text-transform: uppercase;
+	color:$color1;
+	font-weight: 300;
+	display: inline-block;
+	margin: 0 $espacio $espacio 0;
+	
+	@include hasta(tablet){
+		/*padding: $espacio/4 $espacio;*/
+		border: 1px solid rgba(#000,.1);
+		font-size: .8em;
+		padding: 1px;
+	}
+	
+	&.active{
+		font-weight: 400;
+		@include hasta(tablet){
+			box-shadow: 0 0 0 1px $color1;
+		}
+	}
+
+}
+
+.sub_btn_filtro{
+  font-size: .8em;
+  &.active{
+	  border-bottom: 1px solid $color1;
+	  font-weight: 300;
+  }
+}
+
+
+.sub_filtros{
+  opacity: 0;
+  display: inline-block;
+  transition: .3s linear;
+  @include hasta(tablet){
+  	position: absolute;
+  	left: $espacio;
+  	top: 100%;
+  	width: calc(100% - #{$espacio--filas});
+  	background: #fff;
+  }
+}
+
+.btn_filtro[class*="active"] + .sub_filtros{
+  opacity: 1;
+}
+
+
+// Iconos sociales
+li[class*='et_social_']{
+  filter: grayscale(20);
+  opacity: .6;
+  transition: .3s linear;
+  &:hover{
+	  filter: grayscale(0);
+	  opacity: 1;
+  }
+}
+
+.fixed-bar{
+	position: fixed;
+	top: $alto-header;
+	z-index: 50;
+	width: 100%;
+	height: $alto-menu-pagina;
+	background: $fondo--body;
+	@include hasta(tablet){
+		top: $alto-header*.75;
+		height: $alto-menu-pagina*1.25;
+	}
+}
+
+.galeria{
+	background: green;
+	&__item{
+		padding-top: $espacio;
+		padding-bottom: $espacio;
+	}
+}
+.botones-derecha .btn_filtro{
+	margin: 0 0 $espacio $espacio!important;
+}
+
+.video_externo {
+    position: relative;
+    margin-bottom: 20px;
+    padding-top: 56.25%;
+    iframe {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	}
+}
+
+/*
+	Final Tiles Gallery Styles
+*/
+.lg-download{
+	display: none;
+}
+.lg-thumb{
+	margin: 0 auto;
+}
+.final-tiles-gallery .tile:hover img{
+	transform: scale(1)!important;
+}
+
+#mascara_lightbox{
+  	content:"";
+  	position: fixed;
+  	top: 0;
+  	left: 0;
+  	width: 100%;
+  	height: 100%;
+  	background: #fff;
+  	z-index: 999999;
+  	display: none;
+  	
+  	#btn_abrircerrar_galeria{
+	  	position: absolute;
+	  	bottom: 1%;
+	  	left: 50%;
+	  	transform: translateX(-50%);
+	  	width: 2em;
+	  	height: 2em;
+	  	border-radius: 50%;
+	  	z-index: 99999;
+	  	box-shadow: 0 1px 2px 1px rgba(#000,.4);
+	  	cursor: pointer;
+	  	background: #fff;
+	  	transition: all .5s linear;
+	  	&:before{
+		  	content:">";
+		  	position: absolute;
+		  	font-size: 1.8em;
+		  	height: 100%;
+		  	width: 100%;
+		  	border-radius: 50%;
+		  	display: flex;
+		  	align-items: center;
+		  	justify-content: center;
+		  	transform: rotate(-90deg);
+		  	transition: all .5s linear;
+	  	}
+	  	&.abierta{
+		  	bottom: 20%;
+	  	}
+	  	&.abierta:before{
+		  	transform: rotate(90deg);
+	  	}
+  	}
+  	
+  	#foto_lightbox{
+	  	position: absolute;
+	  	width: 90%;
+	  	height: 90vh;
+	  	top: 5vh;
+	  	left: 50%;
+	  	transform: translateX(-50%);
+	  	display: flex;
+	  	justify-content: center;
+	  	align-items: center;
+	  	
+	  	img{
+		  	max-height: 100%;
+		  	max-width: 100%;
+		  	width: auto;
+		  	height: 100%;
+	  	}
+  	}
+  	
+  	#btn_cerrar_lightbox{
+	  	position: absolute;
+	  	top: 1em;
+	  	right: 1em;
+	  	width: 2em;
+	  	height: 2em;
+	  	
+	  	&:before{
+		  	position: absolute;
+		  	width: 100%;
+		  	height: 100%;
+		  	content:"X";
+		  	display: flex;
+		  	align-items: center;
+		  	justify-content: center;
+		  	font-weight: 400;
+		  	font-size: 2em;
+		  	cursor: pointer;
+	  	}
+	}
+	
+	#galeria_lightbox{
+		position: absolute;
+		width: 100%;
+		height: 20%;
+		bottom: 0;
+		left: 0;
+		display: flex;
+		padding: .5em;
+		background: #fff;
+		transition: all .5s linear;
+		transform-origin: bottom center;
+		transform: rotateX(90deg);
+		img{
+			cursor: pointer;
+		}
+		
+		&.abierta{
+			//height: 20%;
+			transform: rotateX(0deg);
+		}
+	}  
+}

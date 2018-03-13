@@ -1,0 +1,49 @@
+// Fichero de variables de configuración
+
+/*
+	Fuentes
+*/
+$fuente--titulos : 'Roboto Condensed';
+$fuente--cuerpo  : 'Roboto Condensed';
+
+/*
+	Colores
+*/
+
+$color1  : #565659;
+$color2  : #DF5500;
+$color_sec:#8E9092;
+
+$fondo--body : #FFF;
+
+
+/*
+	Layout
+*/
+$espacio--filas: 20px;
+$espacio       : $espacio--filas/2;
+$ancho--maximo: 100%;
+
+$alto-header: 5em;
+$alto-menu-pagina: 3.5em;
+
+/*
+	Breakpoints
+*/
+$anchos: (
+  base    :  320px,
+  movil   :  480px,
+  tablet  :  768px,
+  web     :  1025px,
+  hd      :  1400px
+);
+
+/*
+	Fracciones
+*/
+$fracciones: (
+	tercios  : 3,
+	sextos   : 6,
+	octavos  : 8
+)
+
