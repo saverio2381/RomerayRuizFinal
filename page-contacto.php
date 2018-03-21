@@ -18,7 +18,16 @@
 				$page_id = $page->ID;
 			}
 		}
-		listar_subpaginas_nolink($post->ID,$page_id);
+		echo '<span class="btn_filtro active" href="">';
+			_e($mypages[0]->post_title,'rr');
+		echo '</span>';
+
+		echo '<a class="btn_filtro" href="';
+		echo $mypages[1]->post_name;
+		echo '">';
+			_e($mypages[1]->post_title,'rr');
+		echo '</a>';
+		
 		echo '</div>';
 		echo '</div>';
 	?>
@@ -46,11 +55,13 @@
 							<?php echo $datos_contacto; ?>
 						</div>
 						<div class="col tablet-70">
+							<?php if (get_field('imagen_principal')){?>
 							<img class="margin-top" src="	
 							<?php 
 								echo get_field('imagen_principal');
 							?>
 							">
+							<?php } ?>
 						</div>
 						<?php
 					}

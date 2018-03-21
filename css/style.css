@@ -931,6 +931,9 @@ h1, h2, h3, h4, h5, h6 {
   -ms-flex-pack: justify;
   justify-content: space-between; }
 
+#wpadminbar {
+  display: none !important; }
+
 a.btn {
   display: inline-block;
   padding: 5px 10px;
